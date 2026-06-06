@@ -1,13 +1,15 @@
 from bs4 import BeautifulSoup
 import requests
 import re  # regex do wyciągania liczb z ceny
+import json
 
-# 1. Strona
-url = "http://127.0.0.1:5500/docs/index.html"
 
 # pobieranie strony
-response = requests.get(url)
-soup = BeautifulSoup(response.text, "html.parser")
+with open("docs/index.html", encoding="utf-8") as file:
+    soup = BeautifulSoup(file, "html.parser")
+
+# Strona
+url = "http://127.0.0.1:5500/docs/index.html"
 
 # lista na wszystkie ceny liczbowe
 prices = []
