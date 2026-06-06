@@ -45,9 +45,42 @@ def show_cars(cars):
         print(f"{car['name']} | {car['price']} | {car['mileage']}")
 
 
+def calculate_total_value(cars):
+    total = 0
+
+    for car in cars:
+        price = car["price"]
+
+        if price != "Bezcenny":
+            price = price.replace(" PLN", "")
+            price = price.replace(" ", "")
+            price = int(price)
+
+            total += price
+    print(f"Łączna wartośća aut: {total} PLN.")
+
+
+# def add_car(cars):
+
+
 def main():
     cars = load_cars_from_html()
-    show_cars(cars)
+
+    while True:
+        for option in MENU_OPTIONS:
+            print(option)
+
+        choice = input("Wybierz opcję: ")
+
+        if choice == "0":
+            print("Do zobaczenia.")
+            break
+        elif choice == "4":
+            print("Wybrano opcję 4.")
+            calculate_total_value(cars)
+            break
+        else:
+            print("Nieprawidłowa opcja.")
 
 
 main()
