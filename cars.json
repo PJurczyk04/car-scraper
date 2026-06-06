@@ -1,0 +1,27 @@
+[
+    {
+        "name": "BMW seria 3 M-Sport F32 2017",
+        "price": "119 900 PLN",
+        "mileage": "180 000 km"
+    },
+    {
+        "name": "Nissan Silvia S15 2001",
+        "price": "92 500 PLN",
+        "mileage": "150 000 km"
+    },
+    {
+        "name": "Mercedes C-Class AMG W204 2013",
+        "price": "70 500 PLN",
+        "mileage": "170 000 km"
+    },
+    {
+        "name": "Volkswagen Golf VII 2015",
+        "price": "59 900 PLN",
+        "mileage": "200 000 km"
+    },
+    {
+        "name": "BMW e46 Coupe 2000",
+        "price": "Bezcenny",
+        "mileage": "280 000 km"
+    }
+]

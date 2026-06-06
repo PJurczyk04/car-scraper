@@ -4,9 +4,8 @@ import json
 
 MENU_OPTIONS = (
     "1. Wyświetl auta",
-    "2. Dodaj auto",
-    "3. Średnia cena",
-    "4. Łączna wartość",
+    "2. Średnia cena",
+    "3. Łączna wartość",
     "0. Zapisz i wyjdź"
 )
 
@@ -77,7 +76,11 @@ def calculate_average_value(cars):
     print(f"Średnia cena to: {average:.2f} PLN")
 
 
-# def add_car(cars):
+def save_to_json(cars):
+    with open("cars.json", "w", encoding="utf-8") as file:
+        json.dump(cars, file, ensure_ascii=False, indent=4)
+
+    print("Dane zapisano do cars.json")
 
 
 def main():
@@ -90,16 +93,23 @@ def main():
         choice = input("Wybierz opcję: ")
 
         if choice == "0":
+            print("Trwa zapisywanie...")
+            save_to_json(cars)
             print("Do zobaczenia.")
             break
-        elif choice == "4":
-            print("Wybrano opcję 4.")
-            calculate_total_value(cars)
-            break
-        elif choice == "3":
-            print("Wybrano opcję 3.")
+
+        elif choice == "1":
+            print("Wybrano opcję 1")
+            show_cars(cars)
+
+        elif choice == "2":
+            print("Wybrano opcję 2")
             calculate_average_value(cars)
-            break
+
+        elif choice == "3":
+            print("Wybrano opcję 3")
+            calculate_total_value(cars)
+
         else:
             print("Nieprawidłowa opcja.")
 
