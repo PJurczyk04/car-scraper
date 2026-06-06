@@ -57,7 +57,24 @@ def calculate_total_value(cars):
             price = int(price)
 
             total += price
-    print(f"Łączna wartośća aut: {total} PLN.")
+    print(f"Łączna wartośća aut: {total} PLN")
+
+
+def calculate_average_value(cars):
+    total = 0
+    count = 0
+    for car in cars:
+        price = car["price"]
+        if price != "Bezcenny":
+            price = price.replace(" PLN", "")
+            price = price.replace(" ", "")
+            price = int(price)
+            total += price
+            count += 1
+
+    average = total / count
+
+    print(f"Średnia cena to: {average:.2f} PLN")
 
 
 # def add_car(cars):
@@ -78,6 +95,10 @@ def main():
         elif choice == "4":
             print("Wybrano opcję 4.")
             calculate_total_value(cars)
+            break
+        elif choice == "3":
+            print("Wybrano opcję 3.")
+            calculate_average_value(cars)
             break
         else:
             print("Nieprawidłowa opcja.")
